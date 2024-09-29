@@ -10,8 +10,8 @@ import { Spinner } from "@/components/loaders/spinner";
 import { Notice } from "@/components/notice";
 import { Dots } from "@/components/loaders/dots";
 
-import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { ChromeIcon } from "lucide-react";
 
 import { SignInFlow } from "../types";
 import { cn } from "@/lib/utils";
@@ -74,7 +74,7 @@ export const SignUpForm = ({ setState }: SignUpFormProps) => {
                         {isPending ? (
                             <Spinner className="size-5" />
                         ) : (
-                            <FcGoogle className="size-5" />
+                            <ChromeIcon className="size-5" />
                         )}
                     </div>
                     Continue with Google
@@ -89,7 +89,7 @@ export const SignUpForm = ({ setState }: SignUpFormProps) => {
                         {isPending ? (
                             <Spinner className="size-5" />
                         ) : (
-                            <FaGithub className="size-5" />
+                            <GitHubLogoIcon className="size-5" />
                         )}
                     </div>
                     Continue with Github
