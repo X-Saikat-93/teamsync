@@ -14,22 +14,34 @@ export const AuthScreen = () => {
     const [state, setState] = useState<SignInFlow>("signIn");
 
     return (
-        <div className="flex flex-col items-center justify-center w-full h-full gap-4">
-            <div className="absolute top-0 left-0 w-full">
-                <Disclaimer />
-            </div>
-            <Image
-                src="/logo.svg"
-                alt="Slack"
-                height={28}
-                width={110}
-            />
-            <div className="md:w-96">
-                {state === "signIn" ? <SignInForm setState={setState} /> : <SignUpForm setState={setState} />}
-            </div>
-            <div className="font-mono text-[8px] absolute bottom-0 p-1">
-                &#91;© {new Date().getFullYear()} mitism.com&#93;
-            </div>
+      <div className='flex flex-col items-center justify-center min-h-screen w-full gap-6 p-4 bg-gray-50'>
+        {/* Disclaimer */}
+        {/* <div className="absolute top-0 left-0 w-full">
+        <Disclaimer />
+    </div> */}
+
+        {/* Logo */}
+        <Image
+          src='/logo.svg'
+          alt='Slack Logo'
+          height={32}
+          width={120}
+          className='mb-4'
+        />
+
+        {/* Sign In / Sign Up Form */}
+        <div className='w-full max-w-md bg-white shadow-lg rounded-lg p-6'>
+          {state === "signIn" ? (
+            <SignInForm setState={setState} />
+          ) : (
+            <SignUpForm setState={setState} />
+          )}
         </div>
-    )
+
+        {/* Footer */}
+        <div className='font-mono text-xs text-gray-600 absolute bottom-4'>
+          &#91;© {new Date().getFullYear()} Saikat &#93;
+        </div>
+      </div>
+    );
 }
