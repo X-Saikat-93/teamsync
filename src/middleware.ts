@@ -3,22 +3,22 @@ import {
   createRouteMatcher,
   isAuthenticatedNextjs,
   nextjsMiddlewareRedirect,
-} from "@convex-dev/auth/nextjs/server";
- 
-const isPublicPage = createRouteMatcher(["/auth"]);
- 
-export default convexAuthNextjsMiddleware((request) => {
-  if (!isPublicPage(request) && !isAuthenticatedNextjs()) {
-    return nextjsMiddlewareRedirect(request, "/auth");
+} from '@convex-dev/auth/nextjs/server';
+
+const isPublicPage = createRouteMatcher(['/auth']);
+
+export default convexAuthNextjsMiddleware((req) => {
+  if (!isPublicPage(req) && !isAuthenticatedNextjs()) {
+    return nextjsMiddlewareRedirect(req, '/auth');
   }
 
-  if (isPublicPage(request) && isAuthenticatedNextjs()) {
-    return nextjsMiddlewareRedirect(request, "/");
+  if (isPublicPage(req) && isAuthenticatedNextjs()) {
+    return nextjsMiddlewareRedirect(req, '/');
   }
 });
- 
+
 export const config = {
   // The following matcher runs middleware on all routes
   // except static assets.
-  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
 };
