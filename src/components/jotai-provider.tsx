@@ -1,12 +1,6 @@
-import { Provider } from "jotai"
+import { Provider } from 'jotai';
+import type { PropsWithChildren } from 'react';
 
-interface JotaiProviderProps {
-    children: React.ReactNode
-}
-export const JotaiProvider = ({ children }: JotaiProviderProps) => {
-    return (
-        <Provider>
-            {children}
-        </Provider>
-    )
-}
+export const JotaiProvider = ({ children }: PropsWithChildren) => {
+  return <Provider>{children}</Provider>;
+};
